@@ -16,16 +16,16 @@ import {
     git,
     figma,
     docker,
-    meta,
-    starbucks,
-    tesla,
-    shopify,
-    carrent,
-    jobit,
-    tripguide,
+    limahealthLogo,
+    truevoiceLogo,
+    itanLogo,
+    microverseLogo,
+    limahealth,
+    truevoice,
+    itanpublishing,
     threejs,
   } from "../assets";
-  
+
   export const navLinks = [
     {
       id: "about",
@@ -40,10 +40,10 @@ import {
       title: "Contact",
     },
   ];
-  
+
   const services = [
     {
-      title: "Web Developer",
+      title: "Full-Stack Developer",
       icon: web,
     },
     {
@@ -51,15 +51,15 @@ import {
       icon: mobile,
     },
     {
-      title: "Backend Developer",
+      title: "Backend & API Engineer",
       icon: backend,
     },
     {
-      title: "Content Creator",
+      title: "AI & Security Engineer",
       icon: creator,
     },
   ];
-  
+
   const technologies = [
     {
       name: "HTML 5",
@@ -114,153 +114,144 @@ import {
       icon: docker,
     },
   ];
-  
+
   const experiences = [
     {
-      title: "React.js Developer",
-      company_name: "Starbucks",
-      icon: starbucks,
+      title: "Mentor (Volunteer)",
+      company_name: "Microverse",
+      icon: microverseLogo,
       iconBg: "#383E56",
-      date: "March 2020 - April 2021",
+      date: "Feb 2022 - Feb 2025",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Mentored junior web developers, providing technical support through code reviews.",
+        "Proposed improvements to code organization to improve code quality and overall performance.",
+        "Provided advice and tips on how to maintain motivation to sustain longevity in the program.",
       ],
     },
     {
-      title: "React Native Developer",
-      company_name: "Tesla",
-      icon: tesla,
+      title: "Front-End Developer",
+      company_name: "Itan Global Publishing",
+      icon: itanLogo,
       iconBg: "#E6DEDD",
-      date: "Jan 2021 - Feb 2022",
+      date: "Feb 2025 - Present",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Built and deployed three front-end apps (Author, Reader, Admin) for a publishing platform.",
+        "Converted Figma designs into responsive, scalable web applications.",
+        "Implemented author onboarding, KYC, bank verification, and book uploads.",
+        "Integrated Amazon S3 for file storage and deployed/maintained apps using AWS Amplify.",
       ],
     },
     {
-      title: "Web Developer",
-      company_name: "Shopify",
-      icon: shopify,
+      title: "Full-Stack Software Engineer",
+      company_name: "TrueVoice",
+      icon: truevoiceLogo,
       iconBg: "#383E56",
-      date: "Jan 2022 - Jan 2023",
+      date: "Sept 2025 - Nov 2025",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Built an AI-powered voice authentication and verification platform to prevent identity fraud using biometric voice analysis, with Python, FastAPI, PyTorch, NumPy, SQLAlchemy, PostgreSQL, Docker, Nginx, and AWS.",
+        "Implemented speaker embedding and voice matching pipelines for secure voice enrollment and verification.",
+        "Integrated liveness detection mechanisms to mitigate replay and synthetic voice attacks.",
+        "Handled audio ingestion, format normalization, transcription, and embedding extraction for reliable cross-device performance.",
+        "Deployed and managed the system on AWS, configuring compute, networking, and security controls for production readiness.",
       ],
     },
     {
-      title: "Full stack Developer",
-      company_name: "Meta",
-      icon: meta,
+      title: "Full-Stack Software Engineer",
+      company_name: "Lima Health",
+      icon: limahealthLogo,
       iconBg: "#E6DEDD",
-      date: "Jan 2023 - Present",
+      date: "Sept 2025 - Present",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Built a comprehensive HealthTech ecosystem that monitors student well-being through wearable data integration and AI-driven risk assessment, using Node.js, TypeScript, Next.js, React Native, PostgreSQL, Prisma, Zod, AWS, Fitbit API, and Stripe.",
+        "Developed an AI risk-scoring engine to analyze health metrics, calculate user risk levels, and trigger real-time alerts to counselors for high-priority interventions.",
+        "Engineered a multi-platform ecosystem, including mobile apps for Students and Counselors and web dashboards for Schools and Super Admins.",
+        "Integrated Fitbit APIs for biometric data sync and Stripe for secure subscription lifecycles and transactions.",
+        "Architected a secure backend with Clean Architecture, JWT authentication, email verification, and hierarchical RBAC.",
+        "Deployed transactional messaging via AWS SES and enforced data integrity across RESTful endpoints using Zod schema validation.",
       ],
     },
   ];
-  
-  const testimonials = [
-    {
-      testimonial:
-        "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-      name: "Sara Lee",
-      designation: "CFO",
-      company: "Acme Co",
-      image: "https://randomuser.me/api/portraits/women/4.jpg",
-    },
-    {
-      testimonial:
-        "I've never met a web developer who truly cares about their clients' success like Rick does.",
-      name: "Chris Brown",
-      designation: "COO",
-      company: "DEF Corp",
-      image: "https://randomuser.me/api/portraits/men/5.jpg",
-    },
-    {
-      testimonial:
-        "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-      name: "Lisa Wang",
-      designation: "CTO",
-      company: "456 Enterprises",
-      image: "https://randomuser.me/api/portraits/women/6.jpg",
-    },
-  ];
-  
+
   const projects = [
     {
-      name: "Car Rent",
+      name: "Lima Health",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+        "A comprehensive HealthTech ecosystem that monitors student well-being through wearable data integration and an AI-driven risk engine, with mobile apps for students/counselors and dashboards for schools and super admins.",
       tags: [
         {
-          name: "react",
+          name: "nodejs",
           color: "blue-text-gradient",
         },
-        {
-          name: "mongodb",
-          color: "green-text-gradient",
-        },
-        {
-          name: "tailwind",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: carrent,
-      source_code_link: "https://github.com/",
-    },
-    {
-      name: "Job IT",
-      description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
-      tags: [
-        {
-          name: "react",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "restapi",
-          color: "green-text-gradient",
-        },
-        {
-          name: "scss",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: jobit,
-      source_code_link: "https://github.com/",
-    },
-    {
-      name: "Trip Guide",
-      description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-      tags: [
         {
           name: "nextjs",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "supabase",
           color: "green-text-gradient",
         },
         {
-          name: "css",
+          name: "react-native",
+          color: "pink-text-gradient",
+        },
+        {
+          name: "postgresql",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "aws",
+          color: "green-text-gradient",
+        },
+      ],
+      image: limahealth,
+      source_code_link: "#",
+    },
+    {
+      name: "TrueVoice",
+      description:
+        "An AI-powered voice authentication and verification platform that prevents identity fraud using biometric voice analysis, speaker embedding, voice matching, and liveness/anti-spoofing detection.",
+      tags: [
+        {
+          name: "python",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "fastapi",
+          color: "green-text-gradient",
+        },
+        {
+          name: "pytorch",
+          color: "pink-text-gradient",
+        },
+        {
+          name: "docker",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "aws",
+          color: "green-text-gradient",
+        },
+      ],
+      image: truevoice,
+      source_code_link: "#",
+    },
+    {
+      name: "Itan Global Publishing",
+      description:
+        "Three front-end applications (Author, Reader, Admin) for a publishing platform, built from Figma designs, with author onboarding, KYC, bank verification, book uploads, and S3-backed file storage.",
+      tags: [
+        {
+          name: "react",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "figma-to-code",
+          color: "green-text-gradient",
+        },
+        {
+          name: "aws-amplify",
           color: "pink-text-gradient",
         },
       ],
-      image: tripguide,
-      source_code_link: "https://github.com/",
+      image: itanpublishing,
+      source_code_link: "#",
     },
   ];
-  
-  export { services, technologies, experiences, testimonials, projects };
+
+  export { services, technologies, experiences, projects };

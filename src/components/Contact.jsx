@@ -7,6 +7,10 @@ import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_APP_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY;
+
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
@@ -16,6 +20,7 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(null); // { type: "success" | "error", message: string }
 
   const handleChange = (e) => {
     const { target } = e;
@@ -29,25 +34,39 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setStatus(null);
+
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      setStatus({
+        type: "error",
+        message:
+          "Contact form isn't configured yet — email me directly at oluola96@gmail.com.",
+      });
+      return;
+    }
+
     setLoading(true);
 
     emailjs
       .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         {
           from_name: form.name,
-          to_name: "JavaScript Mastery",
+          to_name: "Paul Oluyemi",
           from_email: form.email,
-          to_email: "sujata@jsmastery.pro",
+          to_email: "oluola96@gmail.com",
           message: form.message,
         },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        EMAILJS_PUBLIC_KEY
       )
       .then(
         () => {
           setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
+          setStatus({
+            type: "success",
+            message: "Thank you. I will get back to you as soon as possible.",
+          });
 
           setForm({
             name: "",
@@ -59,7 +78,10 @@ const Contact = () => {
           setLoading(false);
           console.error(error);
 
-          alert("Ahh, something went wrong. Please try again.");
+          setStatus({
+            type: "error",
+            message: "Something went wrong. Please try again or email me directly.",
+          });
         }
       );
   };
@@ -75,16 +97,29 @@ const Contact = () => {
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
 
+        <p className='mt-4 text-secondary text-[15px] max-w-md'>
+          Have a project in mind or just want to say hi? Fill out the form
+          below, or reach me directly at{" "}
+          <a
+            href='mailto:oluola96@gmail.com'
+            className='text-[#915EFF] hover:underline'
+          >
+            oluola96@gmail.com
+          </a>
+          .
+        </p>
+
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className='mt-12 flex flex-col gap-8'
+          className='mt-10 flex flex-col gap-8'
         >
           <label className='flex flex-col'>
             <span className='text-white font-medium mb-4'>Your Name</span>
             <input
               type='text'
               name='name'
+              required
               value={form.name}
               onChange={handleChange}
               placeholder="What's your good name?"
@@ -96,6 +131,7 @@ const Contact = () => {
             <input
               type='email'
               name='email'
+              required
               value={form.email}
               onChange={handleChange}
               placeholder="What's your web address?"
@@ -107,6 +143,7 @@ const Contact = () => {
             <textarea
               rows={7}
               name='message'
+              required
               value={form.message}
               onChange={handleChange}
               placeholder='What you want to say?'
@@ -116,10 +153,24 @@ const Contact = () => {
 
           <button
             type='submit'
-            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
+            disabled={loading}
+            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary disabled:opacity-60 disabled:cursor-not-allowed hover:bg-[#915EFF] transition-colors duration-200'
           >
             {loading ? "Sending..." : "Send"}
           </button>
+
+          {status && (
+            <motion.p
+              initial={{ opacity: 0, y: -5 }}
+              animate={{ opacity: 1, y: 0 }}
+              role='status'
+              className={`text-[14px] ${
+                status.type === "success" ? "text-[#22C55E]" : "text-[#F87171]"
+              }`}
+            >
+              {status.message}
+            </motion.p>
+          )}
         </form>
       </motion.div>
 

@@ -13,6 +13,42 @@
   color-scheme: dark;
 }
 
+body {
+  background-color: #050816;
+}
+
+::selection {
+  background-color: #915eff;
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050816;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #915eff;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7c3dfb;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #915eff;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 .hash-span {
   margin-top: -100px;
   padding-bottom: 100px;
