@@ -40,16 +40,21 @@ const Computers = ({ isMobile, nudgeTrigger, nudgeStartRef }) => {
 
   return (
     <mesh>
-      <hemisphereLight intensity={0.15} groundColor='black' />
-      <pointLight intensity={1} />
+      <hemisphereLight intensity={0.4} groundColor='#1a1a2e' color='#b4c6ef' />
       <spotLight
         position={[-20, 50, 10]}
-        angle={0.12}
+        angle={0.15}
         penumbra={1}
-        intensity={1}
+        intensity={1.3}
         castShadow
         shadow-mapSize={1024}
       />
+      {/* Soft key fill from front-right so the desk/monitor read as more than a silhouette */}
+      <pointLight position={[10, 10, 10]} intensity={0.7} color='#ffffff' />
+      {/* Purple rim/accent light from behind, ties the model to the brand glow and separates it from the dark background */}
+      <pointLight position={[-8, 2, -6]} intensity={1.6} color='#915EFF' />
+      {/* Cool accent from the opposite back corner for extra edge definition */}
+      <directionalLight position={[5, -2, -8]} intensity={0.5} color='#22d3ee' />
       <group
         ref={groupRef}
         rotation={BASE_ROTATION}
@@ -62,7 +67,7 @@ const Computers = ({ isMobile, nudgeTrigger, nudgeStartRef }) => {
   );
 };
 
-const ComputersCanvas = ({ nudgeTrigger }) => {
+const ComputersCanvas = ({ nudgeTrigger, onFirstInteraction }) => {
   const [isMobile, setIsMobile] = useState(false);
   // Shared with OrbitControls' onStart below: the moment the user grabs the
   // model to rotate it themselves, the auto-nudge must back off immediately
@@ -100,6 +105,7 @@ const ComputersCanvas = ({ nudgeTrigger }) => {
           minPolarAngle={Math.PI / 2}
           onStart={() => {
             nudgeStartRef.current = null;
+            onFirstInteraction?.();
           }}
         />
         <Computers

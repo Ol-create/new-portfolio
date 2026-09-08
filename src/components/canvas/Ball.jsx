@@ -15,8 +15,11 @@ const Ball = (props) => {
 
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
-      <ambientLight intensity={0.25} />
-      <directionalLight position={[0, 0, 0.05]} />
+      <ambientLight intensity={0.35} />
+      {/* Angled key light so the flat-shaded facets pick up visible highlight/shadow contrast */}
+      <directionalLight position={[2, 2, 2]} intensity={1.1} />
+      {/* Purple fill from the opposite corner keeps shadow facets from going fully black */}
+      <pointLight position={[-2, -1, -2]} intensity={0.6} color='#915EFF' />
       <mesh castShadow receiveShadow scale={2.75}>
         <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial

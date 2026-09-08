@@ -1,12 +1,34 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 
+const HINT_OFFSET_X = 20;
+const HINT_OFFSET_Y = 20;
+const HINT_WIDTH_ESTIMATE = 180;
+const HINT_HEIGHT_ESTIMATE = 44;
+
 const Hero = () => {
   const sectionRef = useRef(null);
+  const computerWrapperRef = useRef(null);
   const [nudgeTrigger, setNudgeTrigger] = useState(0);
+  const [isHoveringComputer, setIsHoveringComputer] = useState(false);
+  const [hasDragged, setHasDragged] = useState(false);
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+
+  const handleComputerMouseMove = (e) => {
+    const rect = computerWrapperRef.current.getBoundingClientRect();
+    const x = Math.min(
+      Math.max(e.clientX - rect.left, 0),
+      rect.width - HINT_WIDTH_ESTIMATE
+    );
+    const y = Math.min(
+      Math.max(e.clientY - rect.top, 0),
+      rect.height - HINT_HEIGHT_ESTIMATE
+    );
+    setCursorPos({ x, y });
+  };
 
   useEffect(() => {
     const node = sectionRef.current;
@@ -78,8 +100,54 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className='absolute inset-y-0 right-0 w-full sm:w-[65%] lg:w-[58%]'>
-        <ComputersCanvas nudgeTrigger={nudgeTrigger} />
+      <div
+        ref={computerWrapperRef}
+        className='absolute inset-y-0 right-0 w-full sm:w-[65%] lg:w-[58%]'
+        onMouseEnter={() => setIsHoveringComputer(true)}
+        onMouseLeave={() => setIsHoveringComputer(false)}
+        onMouseMove={handleComputerMouseMove}
+      >
+        <ComputersCanvas
+          nudgeTrigger={nudgeTrigger}
+          onFirstInteraction={() => setHasDragged(true)}
+        />
+
+        <div className='absolute inset-0 pointer-events-none overflow-hidden'>
+          <AnimatePresence>
+            {isHoveringComputer && !hasDragged && (
+              <motion.div
+                style={{
+                  left: cursorPos.x + HINT_OFFSET_X,
+                  top: cursorPos.y + HINT_OFFSET_Y,
+                }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.15 }}
+                className='absolute inline-flex items-center gap-2 rounded-full border border-white/20 bg-primary/70 backdrop-blur-sm px-4 py-2'
+              >
+                <svg
+                  width='16'
+                  height='16'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='currentColor'
+                  strokeWidth='2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  className='text-[#915EFF]'
+                >
+                  <path d='M8 12l-4 0m0 0l3 -3m-3 3l3 3' />
+                  <path d='M16 12l4 0m0 0l-3 -3m3 3l-3 3' />
+                  <rect x='9' y='6' width='6' height='12' rx='2' />
+                </svg>
+                <span className='text-white text-[13px] font-medium whitespace-nowrap'>
+                  Drag to rotate in 3D
+                </span>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
 
         <div className='absolute xs:bottom-10 bottom-6 w-full flex justify-center items-center pointer-events-none'>
           <a href='#about' className='pointer-events-auto'>

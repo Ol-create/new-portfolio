@@ -29,6 +29,7 @@ import microverseLogo from "./company/microverse.svg";
 import limahealth from "./limahealth.svg";
 import truevoice from "./truevoice.svg";
 import itanpublishing from "./itanpublishing.svg";
+import leddar from "./leddar.svg";
 
 export {
   logo,
@@ -59,4 +60,5 @@ export {
   limahealth,
   truevoice,
   itanpublishing,
+  leddar,
 };

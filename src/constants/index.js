@@ -23,6 +23,7 @@ import {
     limahealth,
     truevoice,
     itanpublishing,
+    leddar,
     threejs,
   } from "../assets";
 
@@ -250,6 +251,35 @@ import {
         },
       ],
       image: itanpublishing,
+      source_code_link: "#",
+    },
+    {
+      name: "Leddar",
+      description:
+        "A three-sided marketplace for premium custom leather production — brands request and pay for pieces, KYC-verified artisans produce and upload sample/production videos, and admins manage job assignment, video review, and staged escrow payouts end-to-end.",
+      tags: [
+        {
+          name: "nextjs",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "typescript",
+          color: "green-text-gradient",
+        },
+        {
+          name: "redux-toolkit",
+          color: "pink-text-gradient",
+        },
+        {
+          name: "prisma",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "paystack",
+          color: "green-text-gradient",
+        },
+      ],
+      image: leddar,
       source_code_link: "#",
     },
   ];

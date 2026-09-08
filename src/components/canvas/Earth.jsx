@@ -8,7 +8,14 @@ const Earth = () => {
   const earth = useGLTF("/planet/scene.gltf");
 
   return (
-    <primitive object={earth.scene} scale={2.5} position-y={0} rotation-y={0} />
+    <>
+      <ambientLight intensity={0.5} />
+      {/* Key "sun" light so the planet's surface shows real shading, not a flat silhouette */}
+      <directionalLight position={[3, 3, 3]} intensity={1.3} color='#ffffff' />
+      {/* Purple rim light from the far side for depth and brand consistency */}
+      <pointLight position={[-6, -2, -5]} intensity={0.8} color='#915EFF' />
+      <primitive object={earth.scene} scale={2.5} position-y={0} rotation-y={0} />
+    </>
   );
 };
 
