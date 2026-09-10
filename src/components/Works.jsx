@@ -15,6 +15,8 @@ const ProjectCard = ({
   tags,
   image,
   source_code_link,
+  live_links,
+  demo_on_request,
 }) => {
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
@@ -69,6 +71,26 @@ const ProjectCard = ({
         {(!source_code_link || source_code_link === "#") && (
           <p className='mt-3 text-[12px] text-secondary italic'>
             Private repository
+          </p>
+        )}
+
+        {live_links && live_links.length > 0 && (
+          <div className='mt-3 flex flex-wrap gap-2'>
+            {live_links.map((live) => (
+              <button
+                key={`${name}-${live.label}`}
+                onClick={() => window.open(live.link, "_blank")}
+                className='px-3 py-1 rounded-full text-[12px] text-white bg-[#915EFF]/20 border border-[#915EFF] hover:bg-[#915EFF]/40 transition-colors'
+              >
+                {live.label} ↗
+              </button>
+            ))}
+          </div>
+        )}
+
+        {demo_on_request && (
+          <p className='mt-3 text-[12px] text-secondary italic'>
+            Not yet deployed — available for a local demo on request.
           </p>
         )}
       </Tilt>

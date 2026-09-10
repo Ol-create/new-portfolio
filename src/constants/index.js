@@ -16,6 +16,10 @@ import {
     git,
     figma,
     docker,
+    python,
+    nextjs,
+    postgresql,
+    aws,
     limahealthLogo,
     truevoiceLogo,
     itanLogo,
@@ -79,8 +83,16 @@ import {
       icon: typescript,
     },
     {
+      name: "Python",
+      icon: python,
+    },
+    {
       name: "React JS",
       icon: reactjs,
+    },
+    {
+      name: "Next JS",
+      icon: nextjs,
     },
     {
       name: "Redux Toolkit",
@@ -99,6 +111,10 @@ import {
       icon: mongodb,
     },
     {
+      name: "PostgreSQL",
+      icon: postgresql,
+    },
+    {
       name: "Three JS",
       icon: threejs,
     },
@@ -113,6 +129,10 @@ import {
     {
       name: "docker",
       icon: docker,
+    },
+    {
+      name: "AWS",
+      icon: aws,
     },
   ];
 
@@ -177,86 +197,100 @@ import {
     {
       name: "Lima Health",
       description:
-        "A comprehensive HealthTech ecosystem that monitors student well-being through wearable data integration and an AI-driven risk engine, with mobile apps for students/counselors and dashboards for schools and super admins.",
+        "A HealthTech ecosystem that turns wearable biometric data into real-time student wellbeing scores. A dedicated Python/FastAPI microservice serves a scikit-learn model — trained on heart rate, EDA, temperature, and motion data — for stress prediction, backing a Node.js/Express/Prisma/PostgreSQL API that powers a React Native (Expo) app for students and counselors and a Next.js admin dashboard for schools.",
       tags: [
         {
-          name: "nodejs",
+          name: "react-native",
           color: "blue-text-gradient",
         },
         {
-          name: "nextjs",
+          name: "express",
           color: "green-text-gradient",
         },
         {
-          name: "react-native",
+          name: "prisma",
           color: "pink-text-gradient",
         },
         {
-          name: "postgresql",
+          name: "scikit-learn",
           color: "blue-text-gradient",
         },
         {
-          name: "aws",
+          name: "stripe",
           color: "green-text-gradient",
         },
       ],
       image: limahealth,
       source_code_link: "#",
+      demo_on_request: true,
     },
     {
       name: "TrueVoice",
       description:
-        "An AI-powered voice authentication and verification platform that prevents identity fraud using biometric voice analysis, speaker embedding, voice matching, and liveness/anti-spoofing detection.",
+        "A B2B voice-biometric verification API: client companies enroll and verify users' voices through a challenge-response flow, guarded by an ensemble anti-spoofing pipeline (AASIST + LCNN + CQCC-GMM) and SpeechBrain speaker embeddings. Supports multiple languages and per-company API tokens, rate-limited and deployed serverless on AWS Lambda.",
       tags: [
         {
-          name: "python",
-          color: "blue-text-gradient",
-        },
-        {
           name: "fastapi",
-          color: "green-text-gradient",
+          color: "blue-text-gradient",
         },
         {
           name: "pytorch",
+          color: "green-text-gradient",
+        },
+        {
+          name: "speechbrain",
           color: "pink-text-gradient",
         },
         {
-          name: "docker",
+          name: "supabase",
           color: "blue-text-gradient",
         },
         {
-          name: "aws",
+          name: "aws-lambda",
           color: "green-text-gradient",
         },
       ],
       image: truevoice,
       source_code_link: "#",
+      demo_on_request: true,
     },
     {
       name: "Itan Global Publishing",
       description:
-        "Three front-end applications (Author, Reader, Admin) for a publishing platform, built from Figma designs, with author onboarding, KYC, bank verification, book uploads, and S3-backed file storage.",
+        "Four Next.js frontends (Author/Publish, Reader, Audiobook, Admin) for a live ebook and audiobook publishing platform, built from Figma designs and backed by a Rails API. Covers author onboarding, KYC, Paystack payouts, Sanity-CMS-driven content, and a shadcn/Radix UI component system.",
       tags: [
         {
-          name: "react",
+          name: "nextjs",
           color: "blue-text-gradient",
         },
         {
-          name: "figma-to-code",
+          name: "sanity",
           color: "green-text-gradient",
         },
         {
-          name: "aws-amplify",
+          name: "shadcn-ui",
           color: "pink-text-gradient",
+        },
+        {
+          name: "paystack",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "sentry",
+          color: "green-text-gradient",
         },
       ],
       image: itanpublishing,
       source_code_link: "#",
+      live_links: [
+        { label: "Authors", link: "https://publish.itan.app/" },
+        { label: "Readers", link: "http://itan.app/" },
+      ],
     },
     {
       name: "Leddar",
       description:
-        "A three-sided marketplace for premium custom leather production — brands request and pay for pieces, KYC-verified artisans produce and upload sample/production videos, and admins manage job assignment, video review, and staged escrow payouts end-to-end.",
+        "A three-sided marketplace for premium custom leather production — brands request and pay for pieces via Paystack, KYC-verified artisans (NIN/CAC/address checks via QoreID) produce them and upload sample/production videos to S3, and admins manage job assignment, video review, and staged escrow payouts, with PDF invoices and a Swagger-documented API across three Next.js portals and a Node/Express/Prisma backend.",
       tags: [
         {
           name: "nextjs",
@@ -267,7 +301,7 @@ import {
           color: "green-text-gradient",
         },
         {
-          name: "redux-toolkit",
+          name: "express",
           color: "pink-text-gradient",
         },
         {
@@ -281,6 +315,11 @@ import {
       ],
       image: leddar,
       source_code_link: "#",
+      live_links: [
+        { label: "Landing", link: "https://myleddar.com/" },
+        { label: "Artisan", link: "https://artisan.myleddar.com/" },
+        { label: "Brand", link: "https://brand.myleddar.com/" },
+      ],
     },
   ];
 

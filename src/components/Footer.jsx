@@ -25,10 +25,10 @@ const Footer = () => {
 
         <div className='flex items-center gap-6'>
           <a
-            href='mailto:oluola96@gmail.com'
+            href='mailto:pauloluyemi99@gmail.com'
             className='text-secondary hover:text-white text-[14px] transition-colors duration-200'
           >
-            oluola96@gmail.com
+            pauloluyemi99@gmail.com
           </a>
 
           {showTop && (

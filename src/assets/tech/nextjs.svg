@@ -1,0 +1,12 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nextFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <circle cx="64" cy="64" r="60" fill="#000000"/>
+  <path d="M46 40 V88" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+  <path d="M46 40 L84 90" stroke="url(#nextFade)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M78 52 V88" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+</svg>

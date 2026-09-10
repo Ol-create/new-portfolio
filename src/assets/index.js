@@ -20,6 +20,10 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import python from "./tech/python.svg";
+import nextjs from "./tech/nextjs.svg";
+import postgresql from "./tech/postgresql.svg";
+import aws from "./tech/aws.svg";
 
 import limahealthLogo from "./company/limahealth.svg";
 import truevoiceLogo from "./company/truevoice.svg";
@@ -53,6 +57,10 @@ export {
   tailwind,
   typescript,
   threejs,
+  python,
+  nextjs,
+  postgresql,
+  aws,
   limahealthLogo,
   truevoiceLogo,
   itanLogo,

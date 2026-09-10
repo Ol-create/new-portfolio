@@ -40,7 +40,7 @@ const Contact = () => {
       setStatus({
         type: "error",
         message:
-          "Contact form isn't configured yet — email me directly at oluola96@gmail.com.",
+          "Contact form isn't configured yet — email me directly at pauloluyemi99@gmail.com.",
       });
       return;
     }
@@ -55,7 +55,7 @@ const Contact = () => {
           from_name: form.name,
           to_name: "Paul Oluyemi",
           from_email: form.email,
-          to_email: "oluola96@gmail.com",
+          to_email: "pauloluyemi99@gmail.com",
           message: form.message,
         },
         EMAILJS_PUBLIC_KEY
@@ -101,10 +101,10 @@ const Contact = () => {
           Have a project in mind or just want to say hi? Fill out the form
           below, or reach me directly at{" "}
           <a
-            href='mailto:oluola96@gmail.com'
+            href='mailto:pauloluyemi99@gmail.com'
             className='text-[#915EFF] hover:underline'
           >
-            oluola96@gmail.com
+            pauloluyemi99@gmail.com
           </a>
           .
         </p>
@@ -123,7 +123,7 @@ const Contact = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="What's your good name?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg border-2 border-secondary/30 focus-visible:border-transparent font-medium'
             />
           </label>
           <label className='flex flex-col'>
@@ -135,7 +135,7 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               placeholder="What's your web address?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg border-2 border-secondary/30 focus-visible:border-transparent font-medium'
             />
           </label>
           <label className='flex flex-col'>
@@ -147,7 +147,7 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               placeholder='What you want to say?'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg border-2 border-secondary/30 focus-visible:border-transparent font-medium'
             />
           </label>
 
