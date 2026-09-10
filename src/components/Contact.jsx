@@ -154,7 +154,7 @@ const Contact = () => {
           <button
             type='submit'
             disabled={loading}
-            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary disabled:opacity-60 disabled:cursor-not-allowed hover:bg-[#915EFF] transition-colors duration-200'
+            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary border-2 border-secondary/30 hover:border-[#915EFF] disabled:opacity-60 disabled:cursor-not-allowed hover:bg-[#915EFF] transition-colors duration-200'
           >
             {loading ? "Sending..." : "Send"}
           </button>
